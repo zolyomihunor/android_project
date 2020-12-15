@@ -12,6 +12,8 @@ import com.bumptech.glide.Glide
 import com.example.project_wheretoeat.MainActivity
 import com.example.project_wheretoeat.R
 import com.example.project_wheretoeat.fragments.detail.detailFragment
+import com.example.project_wheretoeat.fragments.main.mainFragment
+import com.example.project_wheretoeat.fragments.main.mainFragmentDirections
 import com.example.project_wheretoeat.model.Restaurant
 import kotlinx.android.synthetic.main.list_row_layout.view.*
 
@@ -48,14 +50,21 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
         Glide.with(holder.itemView.context).load(currentItem.image_url).into(holder.image).view
 
         //rakattintas
-        val fragmentDetail = detailFragment()
+        /*val fragmentDetail = detailFragment()
         val bundle:Bundle = Bundle()
         bundle.putInt("id", myList[position].id)
-        fragmentDetail.arguments=bundle;
+        fragmentDetail.arguments=bundle;*/
 
         holder.itemView.restaurant_image.setOnClickListener{
-            holder.itemView.findNavController().navigate(R.id.action_mainFragment_to_detailFragment)
+            val action = mainFragmentDirections.actionMainFragmentToDetailFragment(currentItem.id)
+            holder.itemView.findNavController().navigate(action)
         }
+
+
+
+        /*holder.itemView.restaurant_image.setOnClickListener{
+            holder.itemView.findNavController().navigate(R.id.action_mainFragment_to_detailFragment)
+        }*/
     }
 
     fun setData(newList: List<Restaurant>)

@@ -13,6 +13,7 @@ class MainViewModel(private val repository: Repository) :ViewModel(){
 
     val myResponse: MutableLiveData<List<Restaurant>> = MutableLiveData()
     //var myCustomRestaurants: MutableLiveData<Response<List<Restaurant>>> = MutableLiveData()
+    val myRestaurant: MutableLiveData<Restaurant> = MutableLiveData()
 
 
     fun getRestaurants(){
@@ -22,6 +23,15 @@ class MainViewModel(private val repository: Repository) :ViewModel(){
             myResponse.value = response
         }
     }
+
+    fun getOneRestaurant(id:Int){
+        viewModelScope.launch {
+            val response_restaurant = repository.getOneRestaurant(id)
+            myRestaurant.value = response_restaurant
+        }
+    }
+
+
 
 
 
