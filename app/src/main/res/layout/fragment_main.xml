@@ -7,11 +7,7 @@
     android:background="#008080"
     tools:context=".fragments.main.mainFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="     Main"
-        android:textSize="40sp" />
+
 
 
     <androidx.recyclerview.widget.RecyclerView
