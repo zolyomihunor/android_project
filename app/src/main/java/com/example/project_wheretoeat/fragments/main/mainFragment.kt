@@ -37,15 +37,11 @@ class mainFragment : Fragment(), CoroutineScope {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_main, container, false)
 
-        //jo
+
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
         viewModel.getRestaurants()
-
-
-
-
 
         //RecyclerView
         val adapter = MyAdapter()

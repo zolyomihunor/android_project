@@ -4,6 +4,7 @@ import com.example.project_wheretoeat.util.Constants.Companion.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+//regi szerverhez
 /*object RetrofitInstance {
 
     private val retrofit by lazy{
@@ -19,11 +20,10 @@ import retrofit2.converter.gson.GsonConverterFactory
     }
 }*/
 
+
+//uj szerverhez
 object RetrofitInstance {
     private val retrofit by lazy {
-        //val interceptor = HttpLoggingInterceptor()
-        //interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC)
-        //val okHttp = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
         Retrofit.Builder()
                 .baseUrl(BASE_URL)

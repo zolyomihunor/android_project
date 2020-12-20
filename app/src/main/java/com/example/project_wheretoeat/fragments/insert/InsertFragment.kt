@@ -1,4 +1,4 @@
-package com.example.project_wheretoeat
+package com.example.project_wheretoeat.fragments.insert
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.navigation.fragment.navArgs
-import kotlinx.android.synthetic.main.fragment_insert.view.*
+import com.example.project_wheretoeat.DataBaseHandler
+import com.example.project_wheretoeat.R
+import com.example.project_wheretoeat.User
 
 class InsertFragment : Fragment() {
 
@@ -40,9 +41,9 @@ class InsertFragment : Fragment() {
         }
 
 
-        insertButton.setOnClickListener({
+        insertButton.setOnClickListener(){
             insert()
-        })
+        }
 
         return view
     }

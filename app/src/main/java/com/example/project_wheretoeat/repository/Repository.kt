@@ -11,6 +11,7 @@ class Repository {
         return RetrofitInstance.api.getRestaurants()
     }
 
+
     suspend fun getOneRestaurant(id:Int): Restaurant {
         return RetrofitInstance.api.getRestaurant(id)
     }

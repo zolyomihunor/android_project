@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/insertFragment"
-        android:name="com.example.project_wheretoeat.InsertFragment"
+        android:name="com.example.project_wheretoeat.fragments.insert.InsertFragment"
         android:label="fragment_insert"
         tools:layout="@layout/fragment_insert" >
         <action

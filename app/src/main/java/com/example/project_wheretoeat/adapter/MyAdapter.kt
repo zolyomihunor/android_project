@@ -41,6 +41,7 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
         return myList.size
     }
 
+    //adatok megjelenitese
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = myList[position]
         holder.name.text = currentItem.name
@@ -50,21 +51,11 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
         Glide.with(holder.itemView.context).load(currentItem.image_url).into(holder.image).view
 
         //rakattintas
-        /*val fragmentDetail = detailFragment()
-        val bundle:Bundle = Bundle()
-        bundle.putInt("id", myList[position].id)
-        fragmentDetail.arguments=bundle;*/
-
         holder.itemView.restaurant_image.setOnClickListener{
             val action = mainFragmentDirections.actionMainFragmentToDetailFragment(currentItem.id)
             holder.itemView.findNavController().navigate(action)
         }
 
-
-
-        /*holder.itemView.restaurant_image.setOnClickListener{
-            holder.itemView.findNavController().navigate(R.id.action_mainFragment_to_detailFragment)
-        }*/
     }
 
     fun setData(newList: List<Restaurant>)
@@ -73,18 +64,5 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
         notifyDataSetChanged()
     }
 
-
-    //rakattintas
-    /* fun onItemClick(position: Int)
-    {
-        val fragmentDetail = detailFragment()
-        val bundle:Bundle = Bundle()
-        bundle.putInt("id", myList[position].id)
-        fragmentDetail.arguments=bundle;
-        (activity as MainActivity).supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment, fragmentDetail)
-            commit()
-        }
-    }*/
 }
 

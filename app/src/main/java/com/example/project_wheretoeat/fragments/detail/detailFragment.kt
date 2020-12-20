@@ -31,8 +31,6 @@ class detailFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
-    //var myList2 = emptyList<Restaurant>()
-
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -46,7 +44,7 @@ class detailFragment : Fragment() {
         viewModel.getOneRestaurant(args.id)
 
 
-
+        //adatok megjelenitese
         viewModel.myRestaurant.observe(viewLifecycleOwner, Observer{response_restaurant ->
 
 
@@ -100,52 +98,10 @@ class detailFragment : Fragment() {
 
         })
 
-
-
-
-
-
-
         return view
     }
 
 }
-
-            /*holder.name.text = currentItem.name
-            holder1.address.text = currentItem.address
-            holder2.price.text = currentItem.price.toString()
-            holder3.country.text = currentItem.country
-
-
-            class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
-            {
-                //var name = itemView.findViewById<TextView>(R.id.name_txt_detail)
-                var address = itemView.findViewById<TextView>(R.id.address_txt_detail)
-                var price = itemView.findViewById<TextView>(R.id.price_txt_detail)
-                var country = itemView.findViewById<TextView>(R.id.country_txt_detail)
-                //var image = itemView.findViewById<ImageView>(R.id.restaurant_img)
-            }
-
-            fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-                val currentItem = myList2[position]
-                holder.name.text = currentItem.name
-                holder.address.text = currentItem.address
-                holder.price.text = currentItem.price.toString()
-                holder.country.text = currentItem.country
-                //Glide.with(holder.itemView.context).load(currentItem.image_url).into(holder.image).view
-            }
-            fun setData(newList: List<Restaurant>)
-            {
-                this.myList2 = newList
-                //notifyDataSetChanged()
-            }
-
-            setData(response)*/
-
-
-        //val id = arguments?.getInt("id")
-
-
 
 
 

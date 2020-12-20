@@ -1,33 +1,16 @@
 package com.example.project_wheretoeat.fragments.profile
 
-import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.project_wheretoeat.DataBaseHandler
-import com.example.project_wheretoeat.InsertFragment
 import com.example.project_wheretoeat.R
-import com.example.project_wheretoeat.User
-import kotlinx.android.synthetic.main.fragment_profile.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [profileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class profileFragment : Fragment() {
 
 
@@ -50,7 +33,7 @@ class profileFragment : Fragment() {
         var db = context?.let { DataBaseHandler(context = it) }
 
         insertButton.setOnClickListener{
-            //insert()
+            //insert data
             findNavController().navigate(R.id.action_profileFragment_to_insertFragment)
         }
 
@@ -74,45 +57,53 @@ class profileFragment : Fragment() {
         }
 
         //delete data
-        deleteButton.setOnClickListener({
+        deleteButton.setOnClickListener(){
             db?.deleteData()
-        })
+
+
+        }
 
         //update data
-        updateButton.setOnClickListener({
+        updateButton.setOnClickListener(){
             db?.updateData()
-        })
+            findNavController().navigate(R.id.action_profileFragment_to_insertFragment)
+        }
 
+        //image
+        /*btn_capture.setOnClickListener(){
+            var intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent,123)
+        }*/
+
+        /*btn_gallery.setOnClickListener(){
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, 456)
+        }*/*/
 
         return view
     }
 
-}
-
     //image
-   /* btn_capture.setOnClickListener({
-        var intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(intent,123)
-    })
-
-    btn_gallery.setOnClickListener({
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, 456)
-    })
-
-    //image
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 123)
+        val profileImage = requireView().findViewById<ImageView>(R.id.profile_image)
+        /*if(requestCode == 123)
         {
             var bmp = data?.extras?.get("data") as Bitmap
-            profile_image.setImageBitmap(bmp)
-        }
-         if (requestCode == 456)
-        {
-            profile_image.setImageURI(data?.data)
-        }
-    }
+            profileImage.setImageBitmap(bmp)
+        }*/
 
-    */
+        if (requestCode == 456)
+        {
+            profileImage!!.setImageURI(data?.data)
+        }
+    }*/
+
+}
+
+
+
+
+
+

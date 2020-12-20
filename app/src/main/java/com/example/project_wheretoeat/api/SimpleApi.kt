@@ -10,12 +10,14 @@ import java.util.*
 
 interface SimpleApi {
 
+    //Restaurant lista
     @GET("restaurants")
     suspend fun getRestaurants(
         @Query("name") name:String? = null,
         @Query("country") country:String? = "US"
     ): Resdata
 
+    //Egy restaurant id alapjan
     @GET("restaurants/{id}")
     suspend fun getRestaurant(@Path("id") id: Int): Restaurant
 
